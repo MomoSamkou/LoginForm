@@ -1,6 +1,3 @@
-
-
-
 <?php
    session_start();   //otvorenie session
    
@@ -10,7 +7,7 @@
 
         //connect string do DB
         $servername = "localhost";
-        $username = "Moravcik3A";
+        $username = "Moravcik";
         $password = "1234";
         $dbname = "moravcik3a";
 
@@ -34,7 +31,7 @@
           // output data of each row
           $row = $result->fetch_assoc();
           if($row["password"]==$_POST['password']) {
-            //if(password_verify($_POST['password'],$row["password"])) {
+          //  if(password_verify($_POST['password'],$row["pasword"])) {
                 $_SESSION['valid'] = true; //ulozenie session
                 $_SESSION['timeout'] = time();
                 $_SESSION['username'] = $_POST['username'];
@@ -52,7 +49,10 @@
     $conn->close();
    
 }     
+            
+   
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,25 +63,31 @@
 </head>
 
    <body>
-  <!-- <form action = "index.php" method = "post">
+  <!--<form action = "index.php" method = "post">
+
+  <div class="container">
+   <label for="username"><b>Username</b></label>
    <input type = "text" name = "username" placeholder = "username" required autofocus></br>
+   <label for="password"><b>Password</b></label>
    <input type = "password" name = "password" placeholder = "password" required>
    
    <input class="button" type = "submit" name="login">
-   </form> --> 
-   <form action="action_page.php" method="post">
+</div>
+   </form> -->
+   
+   <form action="index.php" method="post">
 
   <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="username" required>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required>
 
-    <button type="submit" >Login</button>
+    <input class="button" type = "submit" name="login">
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
   </div>
-</form>
+</form> 
    </html>
