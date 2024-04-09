@@ -6,6 +6,6 @@ if(isset($_SESSION['username']) ) {
      
     echo 'Welcome '.$_SESSION['username'].'<br>';
 
-    echo 'Click here to <a href = "logout.php" tite = "Logout">logout.';//odkaz na odhlasenie
+    header('Refresh: 2; URL = Page1.php');
 }
 ?>
