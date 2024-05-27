@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Hostiteľ: 127.0.0.1
--- Čas generovania: St 27.Mar 2024, 13:11
--- Verzia serveru: 10.4.24-MariaDB
--- Verzia PHP: 8.1.6
+-- Čas generovania: Po 27.Máj 2024, 10:31
+-- Verzia serveru: 10.4.32-MariaDB
+-- Verzia PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,6 +24,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Štruktúra tabuľky pre tabuľku `produkty`
+--
+
+CREATE TABLE `produkty` (
+  `Power banka` text NOT NULL,
+  `Grafiky` text NOT NULL,
+  `Procesory` text NOT NULL,
+  `RAMky` text NOT NULL,
+  `Pevné disky` text NOT NULL,
+  `SSD` text NOT NULL,
+  `Matične dosky` text NOT NULL,
+  `PC Case` text NOT NULL,
+  `Príslušenstvo` text NOT NULL,
+  `Chladiče a Vetráky` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Štruktúra tabuľky pre tabuľku `t_user`
 --
 
@@ -32,7 +51,7 @@ CREATE TABLE `t_user` (
   `username` varchar(20) DEFAULT NULL,
   `email` varchar(40) DEFAULT NULL,
   `password` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Sťahujem dáta pre tabuľku `t_user`
