@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hostiteľ: 127.0.0.1
--- Čas generovania: Po 27.Máj 2024, 10:31
+-- Čas generovania: St 29.Máj 2024, 15:00
 -- Verzia serveru: 10.4.32-MariaDB
 -- Verzia PHP: 8.2.12
 
@@ -20,6 +20,19 @@ SET time_zone = "+00:00";
 --
 -- Databáza: `moravcik3a`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Štruktúra tabuľky pre tabuľku `kategorie`
+--
+
+CREATE TABLE `kategorie` (
+  `id` int(11) NOT NULL,
+  `Ulozne_priestory` text NOT NULL,
+  `Komponenty_Hlavne` text NOT NULL,
+  `Doplnky` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -59,11 +72,18 @@ CREATE TABLE `t_user` (
 
 INSERT INTO `t_user` (`id`, `username`, `email`, `password`) VALUES
 (1, 'jozko', 'jozko@jozko.sk', '123'),
-(2, 'ferko', 'ferko@ferko.sk', '321');
+(2, 'ferko', 'ferko@ferko.sk', '321'),
+(7, 'samo', 'fsjfsa@b.com', 'samuel');
 
 --
 -- Kľúče pre exportované tabuľky
 --
+
+--
+-- Indexy pre tabuľku `kategorie`
+--
+ALTER TABLE `kategorie`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexy pre tabuľku `t_user`
@@ -76,10 +96,16 @@ ALTER TABLE `t_user`
 --
 
 --
+-- AUTO_INCREMENT pre tabuľku `kategorie`
+--
+ALTER TABLE `kategorie`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT pre tabuľku `t_user`
 --
 ALTER TABLE `t_user`
-  MODIFY `id` bigint(150) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(150) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
