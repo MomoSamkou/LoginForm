@@ -21,13 +21,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $hashed_password = password_hash($input_password, PASSWORD_DEFAULT);
 
-            $check_username_sql = "SELECT * FROM users WHERE username='$input_username'";
-            $result = $conn->query($check_username_sql);
+            $check_username_sql = "SELECT * FROM t_user WHERE username='$input_username'";
+           $result = $conn->query($check_username_sql);
 
             if ($result->num_rows > 0) {
                 $error_message = "Username already exists. Please choose a different username.";
             } else {
-                $insert_sql = "INSERT INTO users (username, password, email) VALUES ('$input_username', '$hashed_password', '$input_email')";
+                $insert_sql = "INSERT INTO t_user (username, password, email) VALUES ('$input_username', '$input_password', '$input_email')";
 
                 if ($conn->query($insert_sql) === TRUE) {
                     $success_message = "New record created successfully";
