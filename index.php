@@ -54,40 +54,34 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="style.css" >
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login form</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
-
-   <body>
-  <!--<form action = "index.php" method = "post">
-
-  <div class="container">
-   <label for="username"><b>Username</b></label>
-   <input type = "text" name = "username" placeholder = "username" required autofocus></br>
-   <label for="password"><b>Password</b></label>
-   <input type = "password" name = "password" placeholder = "password" required>
-   
-   <input class="button" type = "submit" name="login">
+<body>
+<div class="wrapper">
+    <?php
+        echo $error_message; 
+    ?>
+    <form action="index.php" method="post">
+        <h1>Login</h1>
+        <div class="input-box">
+            <input type="text" name="username" placeholder="Username" required autofocus>
+            <i class='bx bxs-user'></i>
+        </div>
+        <div class="input-box">
+            <input type="password" name="password" placeholder="Password" required>
+            <i class='bx bxs-lock-alt' ></i>
+        </div>
+        <button type="submit" name="submit" class="btn">Login</button>
+        <div class="register-link">
+            <p>Don't have an account? <a href="register.php" id="Register">Register</a></p>
+        </div>
+    </form>
 </div>
-   </form> -->
-   
-   <form action="index.php" method="post">
-
-  <div class="container">
-    <label for="username"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="username" required>
-
-    <label for="password"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" required>
-
-    <input class="button" type = "submit" name="login">
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-  </div>
-</form> 
-   </html>
+</body>
+</html>
