@@ -3,9 +3,9 @@ session_start();
 
 
 $servername = "localhost";
-$username = "csokas3a";
-$password = "csokas3a";
-$dbname = "csokas3a";
+$username = "Moravcik";
+$password = "1234";
+$dbname = "moravcik3a";
 
 $connection = new mysqli($servername, $username, $password, $dbname);
 
@@ -31,7 +31,7 @@ if ($result->num_rows > 0) {
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autickaaa</title>
+    <title>Produkty</title>
     <style>
         body {
             display: flex;
@@ -128,7 +128,7 @@ if ($result->num_rows > 0) {
 
 <body>
 <header>
-    <?php include 'navbar.php';?>
+    <?php?>
 </header>
 <div class="sort-buttons">
     <form method="get" action="">
