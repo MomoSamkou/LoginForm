@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hostiteľ: 127.0.0.1
--- Čas generovania: St 29.Máj 2024, 15:00
+-- Čas generovania: Št 13.Jún 2024, 15:43
 -- Verzia serveru: 10.4.32-MariaDB
 -- Verzia PHP: 8.2.12
 
@@ -24,34 +24,57 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Štruktúra tabuľky pre tabuľku `kategorie`
+-- Štruktúra tabuľky pre tabuľku `auto`
 --
 
-CREATE TABLE `kategorie` (
+CREATE TABLE `auto` (
   `id` int(11) NOT NULL,
-  `Ulozne_priestory` text NOT NULL,
-  `Komponenty_Hlavne` text NOT NULL,
-  `Doplnky` text NOT NULL
+  `model_auta` varchar(150) DEFAULT NULL,
+  `rok_vyroby` int(11) DEFAULT NULL,
+  `cena` float DEFAULT NULL,
+  `vyrobca` varchar(100) DEFAULT NULL,
+  `typ_auta` int(11) DEFAULT NULL,
+  `najazdene_km` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Sťahujem dáta pre tabuľku `auto`
+--
+
+INSERT INTO `auto` (`id`, `model_auta`, `rok_vyroby`, `cena`, `vyrobca`, `typ_auta`, `najazdene_km`) VALUES
+(1, 'Fiat  Multipla', 2002, 25000, 'Fiat', 1, 450000),
+(2, 'Camry', 2005, 2300, 'Toyota', 2, 50000),
+(3, 'Meriva', 2014, 3600, 'Opel', 3, 15000),
+(4, 'Lamborghini ', 2003, 5000000, 'Lamborghini', 2, 2000),
+(5, 'Audi RS6 avant', 2022, 150000, 'Audi', 1, 1500),
+(6, '911 GT3RS', 2021, 1600000, 'Porsche', 2, 15000),
+(7, 'BMW M5 Competition', 2004, 150000, 'BMW', 2, 50000),
+(8, 'Hyundai i20 n', 2014, 25000, 'Hyundai', 2, 15000),
+(9, 'BMW e36', 2012, 25000, 'BMW', 1, 15000),
+(10, 'Ferrari ', 2014, 5000000, 'Ferrari ', 2, 450000);
 
 -- --------------------------------------------------------
 
 --
--- Štruktúra tabuľky pre tabuľku `produkty`
+-- Štruktúra tabuľky pre tabuľku `kategoria`
 --
 
-CREATE TABLE `produkty` (
-  `Power banka` text NOT NULL,
-  `Grafiky` text NOT NULL,
-  `Procesory` text NOT NULL,
-  `RAMky` text NOT NULL,
-  `Pevné disky` text NOT NULL,
-  `SSD` text NOT NULL,
-  `Matične dosky` text NOT NULL,
-  `PC Case` text NOT NULL,
-  `Príslušenstvo` text NOT NULL,
-  `Chladiče a Vetráky` text NOT NULL
+CREATE TABLE `kategoria` (
+  `id` int(11) NOT NULL,
+  `typ_auta` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Sťahujem dáta pre tabuľku `kategoria`
+--
+
+INSERT INTO `kategoria` (`id`, `typ_auta`) VALUES
+(1, 'Mini MPV'),
+(2, 'Šport'),
+(3, 'Sedán'),
+(4, 'Coupé\r\n'),
+(5, 'Hatchback'),
+(6, 'Kombi');
 
 -- --------------------------------------------------------
 
@@ -80,9 +103,15 @@ INSERT INTO `t_user` (`id`, `username`, `email`, `password`) VALUES
 --
 
 --
--- Indexy pre tabuľku `kategorie`
+-- Indexy pre tabuľku `auto`
 --
-ALTER TABLE `kategorie`
+ALTER TABLE `auto`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexy pre tabuľku `kategoria`
+--
+ALTER TABLE `kategoria`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -96,10 +125,16 @@ ALTER TABLE `t_user`
 --
 
 --
--- AUTO_INCREMENT pre tabuľku `kategorie`
+-- AUTO_INCREMENT pre tabuľku `auto`
 --
-ALTER TABLE `kategorie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `auto`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT pre tabuľku `kategoria`
+--
+ALTER TABLE `kategoria`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pre tabuľku `t_user`
